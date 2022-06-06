@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Registration</h2>
+<form action="/Student/Submit" method="post">
+    <input type="text" name="Name" class="form-control" value="@(Model == null ? "": @Model.Name)" />
+    @Html.ValidationMessage("Name", "", new { @class = "text-danger" }, "span")
+    <input type="text" name="ID" class="form-control" value="@(Model == null ? "": @Model.ID)" />
+    @Html.ValidationMessage("ID", "", new { @class = "text-danger" }, "span")
+
+    <input type="date" name="DOB" class="form-control" value="@(Model == null ? "": @Model.DOB.ToShortDataString().Replace('/','-'))" />
+    @Html.ValidationMessage("DOB", "", new { @class = "text-danger" }, "span")
+    <input type="email" name="Email" class="form-control" value="@(Model == null ? "": @Model.Email)" />
+    @Html.ValidationMessage("Email", "", new { @class = "text-danger" }, "span")
+    <label>Gender:</label>
+    <input type="radio" id="male" name="Gender" value="Male" /> Male
+    <input type="radio" id="female" name="Gender" value="Female" /> Female
+    <br>
+    <label name="Dept">Department:</label>
+    <select>
+        <option id="CS" value="CS" name="Dept">CS</option>
+        <option id="EEE" value="EEE" name="Dept">EEE</option>
+    </select>
+    <br>
+    <input type="submit" value="Submit" />
+
+
+</form>
+
