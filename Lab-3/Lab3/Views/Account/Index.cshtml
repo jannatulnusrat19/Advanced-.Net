@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h3 style="color:rosybrown;text-align:center;"> <strong>Profile</strong> </h3>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Date of Birth</th>
+        <th>Address</th>
+        <th>Mobile Number</th>
+    </tr>
+    @foreach (var d in Model)
+    {
+        <tr>
+            <td>@d.ID</td>
+            <td>@d.Name</td>
+            <td>@d.Email</td>
+            <td>@d.Date_of_Birth</td>
+            <td>@d.Address</td>
+            <td>@d.Mobile_Number</td>
+            <td><a href="/Account/Add/@d.ID">Update</a></td>
+            <td><a href="/Account/Delete/@d.ID">Delete</a></td>
+        </tr>
+    }
+    </table>
+<h5><a href="/Account/Create">Create New</a></h5>
